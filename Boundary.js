@@ -1,24 +1,23 @@
-class Particle
+class Boundary
 {
-	constructor(x,y,r)
+	constructor(x,y,w,h)
 	{
 		var options={
-	
-			restitution:0.4, 
-			friction:0
+			isStatic: true
+			//restitution:0.4, 
+			//friction:0
 		
 			}
-		this.x=x;
-		this.y=y;
-		this.r=r
+		//this.x=x;
+		//this.y=y;
+		this.w=w; 
+		this.h=h;
 		
-		this.x +=random(-1,1);
-		this.body=Bodies.circle(this.x, this.y, (this.r)/2, options)
+		this.body=Bodies.rectangle(this.x, this.y, (this.r)/2, options)
 		this.color=color(random(0,255), random(0,255), random(0,255));
 		World.add(world, this.body);
- 
-	} 
-	
+
+	}
 	display()
 	{
 			
@@ -30,7 +29,7 @@ class Particle
 			
 			translate(pos.x, pos.y);
 			ellipseMode(RADIUS); 
-			ellipse(0,0,this.r,this.r);
+			rect(0,0,this.w,this.h);
 	
 			pop(); 
 			

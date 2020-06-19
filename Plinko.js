@@ -1,48 +1,17 @@
-/*class Plinko
-{
-	constructor(x,y,r)
-	{
-		var options={
-			isStatic:true,
-			
-			
-			}
-		this.x=x;
-		this.y=y;
-		this.r=r
-		
-		this.body=Bodies.circle(this.x, this.y, (this.r)/2, options)
-		World.add(world, this.body);
-
-	}
-	display()
-	{
-			
-		var pos =this.body.position;
-			rectMode(CENTER)
-			//strokeWeight(4);
-			fill("white")
-			rect(pos.x, pos.y, this.width, this.height);	
-			
-	}
-
-}
-*/ 
-
 class Plinko
 {
 	constructor(x,y,r)
 	{
 		var options={
-			isStatic:false,
-			restitution:1,
-			friction:0,
-			density:0.8
+			isStatic:true,
+			restitution:0.4, 
+			friction:0
+		
 			
-			}
+			} 
 		this.x=x;
 		this.y=y;
-		this.r=r
+		this.r=r;
 		
 		this.body=Bodies.circle(this.x, this.y, (this.r)/2, options)
 		World.add(world, this.body);
@@ -50,17 +19,17 @@ class Plinko
 	}
 	display()
 	{
-			
-			var paperpos=this.body.position;
-			push()
-			translate(paperpos.x, paperpos.y);
-			rectMode(CENTER)
-			//strokeWeight(4);
 			fill("white")
-			//imageMode(CENTER);
-			//image(this.image, 0,0,this.r, this.r)
-			ellipse(0,0,this.r, this.r);
-			pop()
+			
+			var pos=this.body.position;
+		   
+			push();
+			
+			translate(pos.x, pos.y);
+			//ellipseMode(RADIUS); 
+			ellipse(0,0,this.r*2);
+	
+			pop(); 
 			
 	}
 
